@@ -22,6 +22,9 @@ from cvrapi_client import CVRAPIClient
 UA = 'CVRAPI Test - cvrapi-python-client - cvrapi-test-user +45 12341234'
 client = CVRAPIClient(UA, 'dk')
 
+# Initialize a client using a different version of the CVRAPI
+client = CVRAPIClient(UA, 'dk', '5')
+
 # Get by VAT number, return result as JSON
 cvrapi = client.post('?vat=10150817', 'json')
 print(cvrapi)

@@ -9,4 +9,3 @@ class CVRAPIClient(object):
 
     def __getattr__(self, method):
         return partial(getattr(self.api, 'perform'), method)
-
