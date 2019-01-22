@@ -10,7 +10,7 @@ cvrapi-python-client
 ```
 or install with pip3:
 ```
-$ pip3 install quickpay-api-client
+$ pip3 install cvrapi-python-client
 ```
 
 
