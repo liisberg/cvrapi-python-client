@@ -2,17 +2,6 @@
 Official python client for [CVRAPI](https://cvrapi.dk/documentation).
 CVRAPI allows you to fetch information about Danish and Norwegian companies in a reliable manner.
 
-Installation
-----
-Add to requirements.txt:
-```
-cvrapi-python-client
-```
-or install with pip3:
-```
-$ pip3 install cvrapi-python-client
-```
-
 
 Usage
 ----
