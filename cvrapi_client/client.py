@@ -30,7 +30,7 @@ class CVRApiClient:
         else:
             response.raise_for_status()
 
-    def search(self, country, *args, **kwargs):
+    def search(self, search, country, *args, **kwargs):
         """
         Search the CVR API with the required and optional parameters.
 
@@ -42,29 +42,26 @@ class CVRApiClient:
         :kwaargs phone: (Optional) Search specifically by phone number.
         :return: JSON or XML response based on the format.
         """
-        params = {
-            "country": country,
-            "search": "",
-        }
+        # Validate and construct the search parameters
+        params = {"country": country}
 
-        # Ensure only one specific search option is provided
+        # Filter and validate specific search parameters
         specified_params = {
             SEARCH_PARAMS[k]: v for k, v in kwargs.items() if k in SEARCH_PARAMS
         }
-        # If no specific search option is provided, use the search term
-        if not specified_params:
-            params["search"] = args[0]
-
-        print("specified_params", specified_params)
-
-        # Update params with the specific search parameter, if provided
-        if specified_params:
-            params.pop("search")
-            params.update(specified_params)
 
         if len(specified_params) > 1:
             raise ValueError(
                 "Only one specific search option (vat, name, produ, phone) can be used at a time."
+            )
+
+        if specified_params:
+            params.update(specified_params)
+        elif search:
+            params["search"] = search
+        else:
+            raise ValueError(
+                "You must provide either a 'search' term or a specific search option (vat, name, produ, phone)."
             )
 
         return self._make_request("GET", params)
