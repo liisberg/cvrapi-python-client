@@ -1,6 +1,43 @@
-build/*
-dist/*
-.egg-info/*
-*.pyc
-__pycache__
-venv/*
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+
+# Packaging files:
+*.egg*
+
+# Virtualenv
+venv*
+.venv/
+env
+
+# Pytest
+.cache
+
+
+# Eclipse
+.project
+.pydevproject
+.settings
+
+# PyCharm
+.idea
+
+# Linux Editors
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+*.swp
+*.swo
+.dir-locals.el
+
+
+# Mac
+.DS_Store
+._*
+.vscode/
